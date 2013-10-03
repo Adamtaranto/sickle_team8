@@ -3,6 +3,9 @@ class OurSequence:
 	This class will keep track of a read quality scores.
 	'''
 	def __init__(self,seq_rec):
+		self.readid
+		self.sequence
+		self.quality
 		pass
 	
 	def mean(self):
@@ -11,7 +14,7 @@ class OurSequence:
 	def sd(self):
 		pass
 	
-	def window_mean(self,window_size):
+	def window_mean(self,window_size, offset):
 		pass
 	
 	
