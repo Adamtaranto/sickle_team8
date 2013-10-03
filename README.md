@@ -6,6 +6,7 @@ Our goal is to allow the user to cut not only based on when the mean value of a 
 The first step we propose to accomplish, is produce a table that the user can use as a guide to set his/hers threshold values:
 
 |WindowPosition|MeanQuality|SDQuality|
+| ------------ | --------- | ------- |
 |1|35|2.57|
 |2|37|2.89|
 |3|38|3.00|
