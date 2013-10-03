@@ -34,16 +34,16 @@ class OurSequence:
 
 		#loop over quality scores and calculate variance
 		for i in self.quality:
-		variance = pow((i - self.meanq), 2)
-		new_variance.append(variance)
+			variance = pow((i - self.meanq), 2)
+			new_variance.append(variance)
 
-		#sum the variance values together
-		variance_sum = sum(new_variance)
-		#get the number of variance values
-		variance_total = len(new_variance)
+			#sum the variance values together
+			variance_sum = sum(new_variance)
+			#get the number of variance values
+			variance_total = len(new_variance)
 
-		#caluculate the standard deviation
-		standard_dev = float(variance_sum) / variance_total
+			#caluculate the standard deviation
+			standard_dev = float(variance_sum) / variance_total
 		return standard_dev
 
 	def window_mean(self,window_size, offset):
@@ -63,4 +63,4 @@ class OurSequence:
 			window_start += offset
 			window_end += offset
 
-		print quality_means
+		self.win_mean = quality_means
