@@ -12,7 +12,12 @@ def getSequenceObject(fastq_file):
 		#get identifying information
 		sequence_id = record.id
 		sequence = record.seq
-		sequece_qual = record.letter_annotations["phred_quality"]
+		sequence_qual = record.letter_annotations["phred_quality"]
 		
-		#creat object
+		#create object
 		new_sequence_object = OurSequence(sequence_id, sequence, sequence_qual)
+		print new_sequence_object.readid
+		print new_sequence_object.quality
+		print new_sequence_object.sequence
+
+getSequenceObject(fastq_file)
