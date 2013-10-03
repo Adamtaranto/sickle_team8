@@ -27,16 +27,18 @@ def getSequenceObject(fastq_file):
 		
 		#get identifying information
 		sequence_id = record.id
-		sequence = record.seq
+		sequence = str(record.seq)
 		sequence_qual = record.letter_annotations["phred_quality"]
 		
 		if is_zero_len(sequence):
+			print "Skipping {}.".format(sequence_id)
 			break
 		
 		if is_allN(sequence):
+			print "Skipping {}.".format(sequence_id)
 			break
 			
-		if match_len
+		#length_match(record)
 		
 		#create object
 		new_sequence_object = OurSequence(sequence_id, sequence, sequence_qual)
