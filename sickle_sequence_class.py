@@ -10,6 +10,8 @@ class OurSequence:
 		self.sequence = sequence
 		self.quality = quality
 		self.meanq = self.mean()
+		#Initialize empty dictionary
+		self.quality_means = {}
 
 	def mean(self):
 
@@ -51,8 +53,10 @@ class OurSequence:
 		'''Calculate the mean quality score at incremented windows 
 		across the length of a read.'''
 
-		#Initialize empty dictionary
-		quality_means = {}
+		# if dictionary of quality score means exists do not recalculate
+		if self.quality_means :
+			return self.quality_means
+
 		#Set to position of last value in list
 		seq_end = len(self.quality)
 		#Initialize window boundaries and window instance
@@ -68,7 +72,7 @@ class OurSequence:
 			#Calculate mean of values in sublist, assumes they are all ints
 			window_mean = reduce(lambda x, y: x + y, window_values) / len(window_values)
 			#Save position and mean into dictionary
-			quality_means = {window_count : window_mean}
+			quality_means[window_count] = window_mean
 			#Increment window count and boundaries
 			window_count += 1
 			window_start += offset
