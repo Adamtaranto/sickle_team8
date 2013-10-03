@@ -1,0 +1,24 @@
+The goal: produce some summary stats that will allow the user to decide where to cut
+
+1. Test for which phred scoring scale is being used
+	fastq: ascii offset of 33 (illumina 1.8) has range from 0 to 93
+	fastq-solexa: ascii offset of 64 (illumina early) range -5 to 62
+	fastq-illumina: same as fastq-solexa but range is 0 to 62 (illumina 1.3 to 1.7)
+
+2. Test window size is not too long compared to read length
+
+3. Build Class Sequence
+	read_id
+	sequence
+	quality score
+	methods in class:
+		mean quality score for read -> float
+		sd quality score for read -> float
+		mean quality score along a window -> dictionary{window_pos:{mean:mean quality,sd:sd quality}}
+		trimm
+
+4. function parse the seq.record object into Sequence Class
+
+5. dictionary{read_id:Sequence class}
+
+6. function that will summarise data for output based on the dictionary in step 5
