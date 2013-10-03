@@ -2,10 +2,12 @@ class OurSequence:
 	'''
 	This class will keep track of a read quality scores.
 	'''
-	def __init__(self,seq_rec):
-		self.readid
-		self.sequence
-		self.quality
+	def __init__(self, readid, sequence, quality):
+		
+		self.readid = readid
+		self.sequence = sequence
+		self.quality = quality
+		
 		pass
 	
 	def mean(self):
