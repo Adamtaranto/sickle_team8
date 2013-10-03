@@ -99,6 +99,6 @@ if __name__=='__main__':
 	fastq_file = sys.argv[1]
 	window_size = sys.argv[2]
 	offset = sys.argv[3]
-	fastq_dict = {}
-	getSequenceObject(fastq_file)
+	fastq_dict=getSequenceObject(fastq_file)
 	print fastq_dict
+	getSummaryFile(fastq_dict)
