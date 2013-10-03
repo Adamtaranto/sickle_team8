@@ -34,33 +34,42 @@ class OurSequence:
 
 		#loop over quality scores and calculate variance
 		for i in self.quality:
-		variance = pow((i - self.meanq), 2)
-		new_variance.append(variance)
+			variance = pow((i - self.meanq), 2)
+			new_variance.append(variance)
 
-		#sum the variance values together
-		variance_sum = sum(new_variance)
-		#get the number of variance values
-		variance_total = len(new_variance)
+			#sum the variance values together
+			variance_sum = sum(new_variance)
+			#get the number of variance values
+			variance_total = len(new_variance)
 
-		#caluculate the standard deviation
-		standard_dev = float(variance_sum) / variance_total
+			#caluculate the standard deviation
+			standard_dev = float(variance_sum) / variance_total
 		return standard_dev
 
 	def window_mean(self,window_size, offset):
+		
+		'''Calculate the mean quality score at incremented windows 
+		across the length of a read.'''
 
+		#Initialize empty dictionary
 		quality_means = {}
+		#Set to position of last value in list
 		seq_end = len(self.quality)
+		#Initialize window boundaries and window instance
 		window_start = 0
 		window_end = (offset - 1)
 		window_count = 1
 
-
+		# While current window range does not run over the length of the 'self.quality' 
+		# list, calculate window mean, and increment window by offset.
 		while window_end <= seq_end:
-			window_values = [self.quality[i] for i in range(window_start, window_end+1)] #returns [0,1,2,3,4]
+			#Returns sublist with range of current window
+			window_values = [self.quality[i] for i in range(window_start, window_end+1)]
+			#Calculate mean of values in sublist, assumes they are all ints
 			window_mean = reduce(lambda x, y: x + y, window_values) / len(window_values)
+			#Save position and mean into dictionary
 			quality_means = {window_count : window_mean}
+			#Increment window count and boundaries
 			window_count += 1
 			window_start += offset
 			window_end += offset
-
-		print quality_means
