@@ -21,7 +21,7 @@ class OurSequence:
 		total_sum = sum(self.quality)
 		
 		#calculate mean
-		mean_read = float(total_sum) / total_sum
+		mean_read = float(total_sum) / total_len
 		return mean_read
 	
 	def sd(self):
@@ -33,7 +33,7 @@ class OurSequence:
 		new_variance = []
 		
 		#loop over quality scores and calculate variance
-		for i in quality:
+		for i in self.quality:
 			variance = pow((i - self.meanq), 2)
 			new_variance.append(variance)
 		
