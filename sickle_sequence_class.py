@@ -7,8 +7,6 @@ class OurSequence:
 		self.readid = readid
 		self.sequence = sequence
 		self.quality = quality
-		
-		pass
 	
 	def mean(self):
 		pass
