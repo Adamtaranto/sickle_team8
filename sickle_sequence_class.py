@@ -68,7 +68,7 @@ class OurSequence:
 			#Calculate mean of values in sublist, assumes they are all ints
 			window_mean = reduce(lambda x, y: x + y, window_values) / len(window_values)
 			#Save position and mean into dictionary
-			quality_means = {window_count : window_mean}
+			quality_means[window_count] = window_mean
 			#Increment window count and boundaries
 			window_count += 1
 			window_start += offset
