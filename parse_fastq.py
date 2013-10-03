@@ -1,6 +1,7 @@
 import sys
 from Bio import SeqIO
 from sickle_sequence_class import OurSequence
+from test_func import is_zero_len, is_allN, length_match
 
 fastq_file = sys.argv[1]
 fastq_dict = {}
@@ -20,6 +21,14 @@ def getSequenceObject(fastq_file):
 		sequence_id = record.id
 		sequence = record.seq
 		sequence_qual = record.letter_annotations["phred_quality"]
+		
+		if is_zero_len(sequence):
+			break
+		
+		if is_allN(sequence):
+			break
+			
+		if match_len
 		
 		#create object
 		new_sequence_object = OurSequence(sequence_id, sequence, sequence_qual)
