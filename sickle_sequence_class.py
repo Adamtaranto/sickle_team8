@@ -46,7 +46,7 @@ class OurSequence:
 			standard_dev = float(variance_sum) / variance_total
 		return standard_dev
 
-	def window_mean(self,window_size, offset):
+	def window_means(self,window_size, offset):
 		
 		'''Calculate the mean quality score at incremented windows 
 		across the length of a read.'''

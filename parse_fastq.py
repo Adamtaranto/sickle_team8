@@ -97,3 +97,4 @@ def getSequenceObject(fastq_file):
 
 getSequenceObject(fastq_file)
 print fastq_dict
+getSummaryFile(fastq_dict)
