@@ -12,3 +12,4 @@ The first step we propose to accomplish, is produce a table that the user can us
 ...
 |15|20|10.00|
 |16|15|11.22|
+
