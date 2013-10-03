@@ -4,7 +4,7 @@ class OurSequence:
 	'''
 	This class will keep track of a read quality scores.
 	'''
-	def __init__(self, readid, sequence, quality):
+	def __init__(self, readid, sequence, quality,window_size=10,offset=5):
 
 		self.readid = readid
 		self.sequence = sequence
@@ -12,6 +12,7 @@ class OurSequence:
 		self.meanq = self.mean()
 		#Initialize empty dictionary
 		self.quality_means = {}
+		self.window_means(window_size,offset)
 
 	def mean(self):
 
